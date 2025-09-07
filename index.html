@@ -402,21 +402,28 @@
         </div>
       </footer>
     </main>
+    <!-- Bootstrap bundle (mora biti bundle) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
     <script>
+      // Pokreni AOS nakon učitavanja
       AOS.init({
-        duration: 800, // ms
+        duration: 800,
         offset: 200,
         easing: "ease-out",
-        once: true, // animiraj jednom (ne svaki put kad se pojavi)
+        once: true,
       });
-      // promijeni prag po želji: 0.15 = 15% elementa u viewportu
+
+      // IntersectionObserver za tvoje .reveal-*
       const io = new IntersectionObserver(
         (entries, obs) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
               e.target.classList.add("reveal-active");
-              obs.unobserve(e.target); // animiraj samo prvi put
+              obs.unobserve(e.target);
             }
           });
         },
@@ -427,20 +434,16 @@
         .querySelectorAll(".reveal-left, .reveal-right")
         .forEach((el) => io.observe(el));
 
+      // Toggle za “Sakrij sekciju”
       const btn = document.getElementById("hide-row-btn");
       const row = document.getElementById("feature-row");
-
-      btn.addEventListener("click", function () {
-        const hidden = row.style.display === "none";
-        if (hidden) {
-          // vrati na default (Bootstrap .row je flex)
-          row.style.display = "flex";
-          btn.textContent = "Sakrij sekciju";
-        } else {
-          row.style.display = "none";
-          btn.textContent = "Prikaži sekciju";
-        }
-      });
+      if (btn && row) {
+        btn.addEventListener("click", function () {
+          const hidden = row.style.display === "none";
+          row.style.display = hidden ? "flex" : "none";
+          btn.textContent = hidden ? "Sakrij sekciju" : "Prikaži sekciju";
+        });
+      }
     </script>
   </body>
 </html>
