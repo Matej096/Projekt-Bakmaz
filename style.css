@@ -323,3 +323,26 @@ p {
   width: 100%;
   left: 0;
 }
+/* 1) Globalno ugasi horizontalni overflow */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* 2) Sigurnosno: featurette/redovi neka ne šire layout dok djeca animiraju */
+.row.featurette,
+.featurette {
+  overflow: hidden;
+}
+
+/* 3) (po želji) koristi 3D transform za glađe animacije i manje layout-glitcheva */
+.reveal-left,
+.reveal-right {
+  transform: translate3d(50px, 0, 0); /* desno default */
+}
+.reveal-left {
+  transform: translate3d(-50px, 0, 0);
+}
+.reveal-active {
+  transform: none;
+}
