@@ -202,8 +202,16 @@ p {
   background-repeat: no-repeat;
 }
 
+/* ukloni marginu na malim širinama */
 .nav-item {
-  margin-left: 60px;
+  margin-left: 20px;
+}
+
+/* stavi razmak tek od LG naviše */
+@media (min-width: 992px) {
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 60px;
+  }
 }
 
 .crvena-nesilica {
@@ -323,26 +331,18 @@ p {
   width: 100%;
   left: 0;
 }
-/* 1) Globalno ugasi horizontalni overflow */
+
 html,
 body {
   overflow-x: hidden;
 }
-
-/* 2) Sigurnosno: featurette/redovi neka ne šire layout dok djeca animiraju */
-.row.featurette,
-.featurette {
-  overflow: hidden;
+.navbar,
+.navbar-collapse {
+  max-width: 100vw;
 }
 
-/* 3) (po želji) koristi 3D transform za glađe animacije i manje layout-glitcheva */
-.reveal-left,
-.reveal-right {
-  transform: translate3d(50px, 0, 0); /* desno default */
-}
-.reveal-left {
-  transform: translate3d(-50px, 0, 0);
-}
-.reveal-active {
-  transform: none;
+@media (max-width: 575.98px) {
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
 }
