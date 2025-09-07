@@ -57,9 +57,6 @@ p {
 }
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-}
 
 .carousel-item > img {
   position: absolute;
@@ -125,17 +122,24 @@ p {
 }
 
 .hero-img {
-  min-height: 400px; /* možeš povećati, npr. 600px */
   background-image: url(Photos/Slika1.jpg);
-  background-size: cover; /* ključna stvar! */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
+  min-height: 100%; /* default */
 }
 
+/* mobitel/portrait */
 @media (min-width: 768px) {
   .hero-img {
-    min-height: 600px;
+    min-height: 100%;
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .hero-img {
+    height: 100%;
   }
 }
 
