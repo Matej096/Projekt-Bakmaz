@@ -1,0 +1,233 @@
+:root {
+  --bg: #0b0c10;
+  --panel: #11131a;
+  --fg: #e8ecf1;
+  --muted: #a9b2bd;
+  --gap: 14px;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: radial-gradient(
+      1200px 800px at 20% -10%,
+      #1b2333 0%,
+      var(--bg) 60%
+    )
+    fixed;
+}
+.wrap {
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+header h1 {
+  margin: 0 0 8px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Grid */
+.grid {
+  list-style: none;
+  margin: 24px 0 60px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.05) contrast(1.02);
+  transition: transform 0.35s ease;
+  background: #0d0f16;
+}
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: #ecf3ff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+}
+.card:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox (CSS-only via :target) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 32px;
+  z-index: 9999;
+}
+.lightbox:target {
+  display: grid;
+  background: color-mix(in srgb, black 75%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.lb-backdrop {
+  position: absolute;
+  inset: 0;
+}
+.lb-figure {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto; /* slika gore, caption dolje */
+  align-items: center;
+  justify-items: center;
+  max-width: min(92vw, 1200px);
+  height: calc(
+    100vh - 64px
+  ); /* visina figure = visina prozora – padding lightboxa */
+  max-height: 800px; /* plafon za desktop */
+  box-sizing: border-box;
+  min-height: 0; /* VAŽNO: dozvoli skupljanje */
+}
+
+.lb-figure img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%; /* sada “zna” što znači 100% */
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  min-height: 0;
+  min-width: 0;
+}
+
+.lb-figure figcaption {
+  margin-top: 10px;
+  color: #cfe3ff;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.lb-prev,
+.lb-next,
+.lb-close {
+  position: absolute;
+  z-index: 2;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 20px;
+}
+.lb-prev:hover,
+.lb-next:hover,
+.lb-close:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+.lb-prev {
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lb-next {
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lb-close {
+  right: 14px;
+  top: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  font-size: 22px;
+}
+
+/* Mobile tweaks (galerija + lightbox) */
+@media (max-width: 520px) {
+  .wrap {
+    margin: 28px auto;
+  }
+  .lb-figure {
+    height: calc(100vh - 56px); /* malo manje na mobitelu */
+    max-height: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card img,
+  .caption {
+    transition: none;
+  }
+}
+
+.home-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #34411a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-link:hover {
+  background-color: #273313;
+  transform: translateY(-2px);
+}
+
+.home-link:active {
+  transform: translateY(0);
+}
+
+.home-link:focus {
+  outline: 2px solid rgba(52, 65, 26, 0.5);
+  outline-offset: 2px;
+}
