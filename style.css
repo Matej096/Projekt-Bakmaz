@@ -26,7 +26,8 @@ body {
 }
 
 h1 {
-  font-size: 43px;
+  font-size: clamp(25px, 4.5vw, 48px);
+  opacity: 90%;
 }
 
 body {
@@ -122,9 +123,9 @@ p {
 }
 
 .hero-img {
-  background-image: url(Photos/Slika1.jpg);
+  background-image: url(Photos/Pijetao2.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center calc(50% - 120px);
   background-repeat: no-repeat;
   min-height: 100%; /* default */
 }
@@ -168,6 +169,12 @@ p {
 .new-position {
   position: static !important;
   text-align: center !important;
+}
+
+.podnaslov {
+  font-size: clamp(14px, 2.7vw, 19px) !important;
+  color: #f8f9fa;
+  margin-top: 20px;
 }
 
 .o-nama {
@@ -353,4 +360,13 @@ body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
+}
+
+.text_ponude {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.logo_slika {
+  margin-bottom: 8px;
 }
