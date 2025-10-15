@@ -37,7 +37,7 @@ body {
 p {
   font-family: "Lato", sans-serif;
   font-weight: 400 !important;
-  font-size: clamp(14px, 2.7vw, 19px) !important;
+  font-size: clamp(17px, 3.4vw, 24px) !important;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -101,6 +101,10 @@ p {
   letter-spacing: -0.05rem;
 }
 
+.featurette-heading {
+  font-size: 32px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -113,7 +117,7 @@ p {
   }
 
   .featurette-heading {
-    font-size: 40px;
+    font-size: 55px;
   }
 }
 
