@@ -13,6 +13,11 @@
 
     <!-- Google Fonts (Lato 300/400/700) -->
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
@@ -90,26 +95,25 @@
 
     <main>
       <div id="myCarousel" class="carousel slide">
-        <!-- (indikatori)
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol> -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="hero-img d-flex align-items-center">
-              <div class="overlay"></div>
-              <div class="container">
-                <div class="carousel-caption text-left new-position">
-                  <h1>OPG Bakmaz – tradicija uzgoja peradi</h1>
-                  <p class="podnaslov">Vaš pouzdan izbor za zdravu perad</p>
-                  <p>
-                    <a class="btn btn-lg btn-primary" href="#"
-                      >Kontaktirajte nas</a
-                    >
-                  </p>
-                </div>
+            <img
+              src="Photos/Pijetao2.jpg"
+              alt="OPG Bakmaz"
+              class="d-block w-100 hero-img"
+            />
+            <div class="overlay"></div>
+
+            <!--  Sadržaj unutar karusela -->
+            <div class="container">
+              <div class="carousel-caption text-left new-position">
+                <h1>OPG Bakmaz – tradicija uzgoja peradi</h1>
+                <p class="podnaslov">Vaš pouzdan izbor za zdravu perad</p>
+                <p>
+                  <a class="btn btn-lg btn-primary" href="#"
+                    >Kontaktirajte nas</a
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -159,6 +163,7 @@
 
         <hr class="featurette-divider" />
 
+        <!-- 
         <div class="row" id="feature-row">
           <div class="col-lg-4">
             <svg
@@ -189,7 +194,7 @@
               >
             </p>
           </div>
-          <!-- /.col-lg-4 -->
+         
           <div class="col-lg-4">
             <svg
               class="bd-placeholder-img rounded-circle"
@@ -219,7 +224,7 @@
               >
             </p>
           </div>
-          <!-- /.col-lg-4 -->
+         
           <div class="col-lg-4">
             <svg
               class="bd-placeholder-img rounded-circle"
@@ -249,27 +254,28 @@
               >
             </p>
           </div>
-          <!-- /.col-lg-4 -->
+          
         </div>
-        <!-- /.row -->
+     
         <div class="text-center mt-3">
           <button class="btn btn-danger" id="hide-row-btn">
             Sakrij sekciju
           </button>
         </div>
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider" />
+        START THE FEATURETTES -->
 
         <div class="text_ponude">
-          <h2 class="featurette-heading o-nama_title">Ponuda</h2>
+          <h2 class="featurette-heading o-nama_title" id="ponuda">Ponuda</h2>
           <p class="lead o-nama_paragraf">
-            Prvenstveno prodajemo pilenke u dobi od 16-18 tjedana starosti
-            (2-3tjedna pred pronesak), pilenke su zdrave, cjepljene.
+            Prvenstveno prodajemo pilenke stare 16–18 tjedana (2–3 tjedna prije
+            proneska). Sve pilenke su zdrave i cijepljene, uzgajane u
+            kontroliranim uvjetima i spremne za brzo prilagođavanje vašem
+            dvorištu ili gospodarstvu.
           </p>
         </div>
+        <hr class="featurette-divider" />
 
-        <div class="row featurette d-flex align-items-center" id="ponuda">
+        <div class="row featurette d-flex align-items-center">
           <div class="col-md-7 reveal-left">
             <h2 class="featurette-heading">
               Lohmann Brown
@@ -371,6 +377,82 @@
       </div>
 
       <!-- /.container -->
+
+      <section class="map-section">
+        <h2 class="featurette-heading o-nama_title">Potražite nas</h2>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4609.112867748999!2d16.110407113105666!3d45.68609407095772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47667d6347e4b8bb%3A0xb27cb780f97b6d3d!2sOpg%20Bakmaz!5e1!3m2!1shr!2shr!4v1760465411287!5m2!1shr!2shr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+
+        <div class="social-logos">
+          <a
+            href="https://www.facebook.com/profile.php?id=100057505566515"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <img
+              src="/Slike-Bakmaz/mreze-logo/facebook.png"
+              alt="Facebook logo"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/opgbakmaz/"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <img
+              src="/Slike-Bakmaz/mreze-logo/instagram-zaobljena.png"
+              alt="Instagram logo"
+            />
+          </a>
+
+          <a href="mailto:mabakmaz1@gmail.com" aria-label="Pošalji e-mail">
+            <img src="/Slike-Bakmaz/mreze-logo/mail.png" alt="Email ikona" />
+          </a>
+
+          <a href="tel:+385912533519" aria-label="Nazovi nas">
+            <img
+              src="/Slike-Bakmaz/mreze-logo/mobitel.png"
+              alt="Mobitel ikona"
+            />
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <img
+              src="/Slike-Bakmaz/mreze-logo/lokacija.png"
+              alt="Lokacija ikona"
+            />
+            <span>OPG Bakmaz, Bjelovar</span>
+          </div>
+
+          <div class="contact-item">
+            <img
+              src="/Slike-Bakmaz/mreze-logo/mobitel.png"
+              alt="Telefon ikona"
+            />
+            <span>
+              <a href="tel:+385912533519">091 253 3519</a>,
+              <a href="tel:+38598779979">098 779 979</a>
+            </span>
+          </div>
+
+          <div class="contact-item">
+            <img src="/Slike-Bakmaz/mreze-logo/mail.png" alt="Email ikona" />
+            <span>
+              <a href="mailto:mabakmaz1@gmail.com">mabakmaz1@gmail.com</a>
+            </span>
+          </div>
+        </div>
+      </section>
 
       <!-- FOOTER -->
       <footer class="bg-dark text-light py-4 mt-5 footer-section">

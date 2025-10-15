@@ -37,6 +37,7 @@ body {
 p {
   font-family: "Lato", sans-serif;
   font-weight: 400 !important;
+  font-size: clamp(14px, 2.7vw, 19px) !important;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -59,12 +60,12 @@ p {
 
 /* Declare heights because of positioning of img element */
 
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+.carousel-item > img.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+  display: block;
 }
 
 /* MARKETING CONTENT
@@ -112,7 +113,7 @@ p {
   }
 
   .featurette-heading {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 
@@ -122,12 +123,26 @@ p {
   }
 }
 
+/* 1️⃣ Slika ispunjava cijeli ekran */
 .hero-img {
-  background-image: url(Photos/Pijetao2.jpg);
-  background-size: cover;
-  background-position: center calc(50% - 120px);
-  background-repeat: no-repeat;
-  min-height: 100%; /* default */
+  height: 100vh !important; /* visina cijelog prozora */
+  object-fit: cover; /* ponaša se kao background-size: cover */
+  object-position: center 40%; /* pomak gore/dolje po želji */
+  display: block; /* sprječava bijeli razmak ispod slike */
+}
+
+/* 3️⃣ Carousel caption (tekst) ostaje iznad overlaya */
+.carousel-caption {
+  position: relative;
+  z-index: 2;
+}
+
+/* 4️⃣ Carousel visina (ako nije već definirana) */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* mobitel/portrait */
@@ -154,10 +169,11 @@ p {
     0,
     0,
     0,
-    0.35
+    0.25
   ); /* 0.45 je optimalno, povećaj ili smanji po želji */
   z-index: 1;
   border-radius: inherit; /* ako koristiš rounded hero */
+  pointer-events: none;
 }
 
 .hero-img .container,
@@ -167,8 +183,9 @@ p {
 }
 
 .new-position {
-  position: static !important;
+  position: relative !important;
   text-align: center !important;
+  z-index: 2;
 }
 
 .podnaslov {
@@ -179,21 +196,25 @@ p {
 
 .o-nama {
   margin-bottom: 80px;
-  margin-top: 110px;
+  margin-top: 80px;
 }
 
 .o-nama_title {
   align-items: center;
   text-align: center;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .o-nama_paragraf {
   text-align: center;
 }
 
+.carousel,
+.carousel-inner,
 .carousel-item {
-  height: 800px;
+  height: 95vh; /* puni ekran, bez obzira na rezoluciju */
+  position: relative;
 }
 
 .pilenka {
@@ -356,7 +377,34 @@ body {
   .navbar-nav .nav-link::after {
     display: none;
   }
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 75vh;
+  }
+
+  .carousel-item > img.hero-img {
+    height: 75vh;
+    object-fit: cover; /* osiguraj crop */
+    transform: translateY(-210px); /* POMAK GORE — prilagodi npr. -40 do -100 */
+  }
 }
+
+@media (min-width: 576px) and (max-width: 900px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 89vh;
+  } /* malo kraće od full-screen */
+
+  .carousel-item > img.hero-img {
+    height: 85vh;
+    object-fit: cover;
+    object-position: center 75%; /* blagi fokus niže */
+    transform: translateY(-80px); /* blagi “lift” kadra */
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
@@ -369,4 +417,123 @@ html {
 
 .logo_slika {
   margin-bottom: 8px;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  bottom: auto !important; /* pregazi Bootstrapovo bottom */
+  right: auto !important;
+
+  z-index: 2;
+  text-align: center;
+  width: min(90%, 1000px); /* da tekst ne bježi u rubove */
+  margin: 0;
+  padding: 0 1rem;
+}
+
+/* Sekcija s kartom */
+.map-section {
+  margin-bottom: 100px;
+  margin-top: 100px;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* možeš promijeniti ili maknuti */
+}
+
+/* Naslov iznad karte */
+.map-section h2 {
+  margin-bottom: 40px;
+}
+
+/* Omot za responzivnost i centriranje */
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* širina na desktopu */
+  margin: 0 auto; /* centrirano */
+  aspect-ratio: 16 / 9; /* automatski omjer (možeš promijeniti u 4/3 ili 3/2) */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* iframe prilagođen kontejneru */
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 1200px) {
+  .o-nama,
+  .text_ponude {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.social-logos {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-logos a img,
+.kontakt-podaci {
+  width: 35px; /* veličina loga */
+  height: 35px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-logos a img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.contact-info {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item img {
+  width: 26px; /* veličina ikone */
+  height: 26px;
+  object-fit: contain;
+}
+
+.contact-item a {
+  color: #0066cc; /* ili tvoja brend boja, npr. zelena: #3b5d2a */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #004a99;
 }
