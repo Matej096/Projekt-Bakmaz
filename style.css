@@ -547,15 +547,110 @@ html {
   color: #004a99;
 }
 
-@media (max-height: 700px) {
-  .carousel-item > img.hero-img {
-    height: 125vh !important; /* visina cijelog prozora */
+/* 1) Stabilna visina hero-a na mobitelima (adresna traka) */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 100svh; /* small viewport height – radi dobro na mobitelu */
+  min-height: 420px;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+@supports (height: 100dvh) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 100dvh; /* još stabilnije gdje je podržano */
   }
 }
 
-@media (max-height: 850px) {
+/* 2) Slika ispuni cijeli slajd + anti-seam trik */
+.carousel-item > img.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* anti-1px seam (pokriva podrezivanje i iOS rounding) */
+  inset: -1px 0 0 0; /* gurni 1px gore */
+  height: calc(100% + 2px); /* i rastegni 1-2px */
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0); /* GPU nudge za iOS */
+}
+
+/* 3) Ukloni “lift” i duboki fokus na nižim visinama (da ne ode previše gore) */
+@media (max-height: 850px) and (min-height: 701px) {
   .carousel-item > img.hero-img {
-    object-position: center 60% !important; /* pomakni fokus malo više */
-    transform: translateY(-130px) !important; /* manji pomak nego prije */
+    object-position: center 65% !important;
+    transform: none !important;
+  }
+}
+@media (max-height: 700px) {
+  .carousel-item > img.hero-img {
+    object-position: center !important;
+    transform: none !important;
+  }
+}
+
+/* 4) Ako i dalje vidiš sivu crtu zbog pozadine tijela — pobij je bijelim */
+body {
+  background-color: #fff;
+}
+
+/* (po želji) Ako sljedeća sekcija ima vlastitu pozadinu,
+   dodaj joj malo gornjeg paddingsa umjesto margine na .carousel */
+.o-nama {
+  margin-top: 32px;
+}
+
+/* Od 995px širine naniže — lagano podigni hero sliku */
+@media (max-width: 995px) {
+  .carousel-item > img.hero-img {
+    object-position: center 70% !important; /* pomakni fokus malo više */
+    transform: translateY(-50px) !important; /* podigni sliku gore */
+  }
+}
+
+/* Od 700px visine naniže i dalje ostaje tvoj postojeći fix */
+@media (max-height: 700px) {
+  .carousel-item > img.hero-img {
+    object-position: center !important;
+    transform: none !important;
+  }
+}
+
+/* ispod 995px širine samo promijeni fokus slike */
+@media (max-width: 995px) {
+  .carousel-item > img.hero-img {
+    object-position: center 85% !important; /* podigni kadar */
+    transform: none !important; /* makni translate */
+  }
+}
+
+/* od 995px naniže — blagi pomak gore */
+@media (max-width: 995px) {
+  .carousel-item > img.hero-img {
+    object-position: center 75% !important; /* blago podigni kadar */
+  }
+}
+
+/* od 800px naniže — još malo gore */
+@media (max-width: 800px) {
+  .carousel-item > img.hero-img {
+    object-position: center 90% !important; /* dodatno podigni kadar */
+  }
+}
+
+@media (max-width: 700px) {
+  .carousel-item > img.hero-img {
+    object-position: center 90% !important; /* dodatno podigni kadar */
+  }
+}
+
+/* od 610px naniže — dodatno podigni sliku, bez donjeg reza */
+@media (max-width: 610px) {
+  .carousel-item > img.hero-img {
+    object-position: center 95% !important; /* pomakni fokus još više */
   }
 }
