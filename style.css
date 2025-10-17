@@ -552,3 +552,10 @@ html {
     height: 125vh !important; /* visina cijelog prozora */
   }
 }
+
+@media (max-height: 850px) {
+  .carousel-item > img.hero-img {
+    object-position: center 60% !important; /* pomakni fokus malo više */
+    transform: translateY(-130px) !important; /* manji pomak nego prije */
+  }
+}
