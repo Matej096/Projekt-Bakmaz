@@ -549,6 +549,6 @@ html {
 
 @media (max-height: 700px) {
   .carousel-item > img.hero-img {
-    height: 115vh !important;
+    height: 125vh !important; /* visina cijelog prozora */
   }
 }
