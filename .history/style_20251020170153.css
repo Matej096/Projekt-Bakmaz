@@ -653,6 +653,7 @@ body {
   .carousel {
     height: 90vh !important; /* smanji visinu karusela */
   }
+  }
 }
 
 /* od 610px naniže — dodatno podigni sliku, bez donjeg reza */

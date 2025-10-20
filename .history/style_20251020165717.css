@@ -560,7 +560,7 @@ html {
   .carousel,
   .carousel-inner,
   .carousel-item {
-    height: 100dvh; /* još stabilnije gdje je podržano */
+    height: 89dvh; /* još stabilnije gdje je podržano */
   }
 }
 
@@ -646,12 +646,6 @@ body {
   .carousel-item > img.hero-img {
     object-position: center 90% !important; /* dodatno podigni kadar */
     transform: translateY(-58px) !important; /* lagano podigni sliku */
-  }
-}
-
-@media (max-width: 700px) {
-  .carousel {
-    height: 90vh !important; /* smanji visinu karusela */
   }
 }
 

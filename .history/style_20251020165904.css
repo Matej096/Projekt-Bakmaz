@@ -645,13 +645,7 @@ body {
 @media (max-width: 700px) {
   .carousel-item > img.hero-img {
     object-position: center 90% !important; /* dodatno podigni kadar */
-    transform: translateY(-58px) !important; /* lagano podigni sliku */
-  }
-}
-
-@media (max-width: 700px) {
-  .carousel {
-    height: 90vh !important; /* smanji visinu karusela */
+    transform: translateY(-200px) !important; /* lagano podigni sliku */
   }
 }
 

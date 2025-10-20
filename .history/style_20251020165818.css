@@ -649,12 +649,6 @@ body {
   }
 }
 
-@media (max-width: 700px) {
-  .carousel {
-    height: 90vh !important; /* smanji visinu karusela */
-  }
-}
-
 /* od 610px naniže — dodatno podigni sliku, bez donjeg reza */
 @media (max-width: 610px) {
   .carousel-item > img.hero-img {
