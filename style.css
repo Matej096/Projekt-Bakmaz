@@ -651,7 +651,7 @@ body {
 
 @media (max-width: 700px) {
   .carousel {
-    height: 90vh !important; /* smanji visinu karusela */
+    height: 74vh !important; /* smanji visinu karusela */
   }
 }
 
