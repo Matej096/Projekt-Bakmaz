@@ -675,4 +675,6 @@ body {
   }
 }
 
-/* Dodatak radi donje crte na mobitelu*/
+.potrazite-nas-title {
+  font-weight: 400;
+}
