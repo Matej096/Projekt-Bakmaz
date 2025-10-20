@@ -660,12 +660,10 @@ body {
   .carousel,
   .carousel-inner,
   .carousel-item {
-    height: 70vh !important; /* smanji visinu karusela */
+    height: 75vh !important; /* smanji visinu karusela */
   }
 
   .carousel-item > img.hero-img {
     object-position: center 95% !important; /* lagano podigni kadar */
   }
 }
-
-/* Dodatak radi donje crte na mobitelu*/

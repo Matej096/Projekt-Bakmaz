@@ -624,7 +624,6 @@ body {
 @media (max-width: 995px) {
   .carousel-item > img.hero-img {
     object-position: center 85% !important; /* podigni kadar */
-    transform: none !important; /* makni translate */
   }
 }
 
@@ -652,7 +651,6 @@ body {
 @media (max-width: 610px) {
   .carousel-item > img.hero-img {
     object-position: center 95% !important; /* pomakni fokus još više */
-    transform: translateY(-200px) !important; /* lagano podigni sliku */
   }
 }
 /* --- Mobilni prikaz: manja visina i bolja pozicija slike --- */
@@ -660,12 +658,10 @@ body {
   .carousel,
   .carousel-inner,
   .carousel-item {
-    height: 70vh !important; /* smanji visinu karusela */
+    height: 80vh !important; /* smanji visinu karusela */
   }
 
   .carousel-item > img.hero-img {
     object-position: center 95% !important; /* lagano podigni kadar */
   }
 }
-
-/* Dodatak radi donje crte na mobitelu*/

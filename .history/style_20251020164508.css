@@ -660,7 +660,7 @@ body {
   .carousel,
   .carousel-inner,
   .carousel-item {
-    height: 70vh !important; /* smanji visinu karusela */
+    height: 75vh !important; /* smanji visinu karusela */
   }
 
   .carousel-item > img.hero-img {
@@ -669,3 +669,33 @@ body {
 }
 
 /* Dodatak radi donje crte na mobitelu*/
+
+@media (max-width: 610px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 75svh !important; /* stabilnije od vh na mobitelu */
+    overflow: hidden;
+    margin-bottom: 0 !important;
+  }
+
+  .carousel-item {
+    position: relative;
+  }
+
+  .carousel-item > img.hero-img {
+    position: absolute;
+    inset: 0; /* ispuni cijeli slajd */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* samo dižemo kadar, bez translate */
+    object-position: center 98% !important;
+    transform: none !important;
+
+    /* mali render tweak za mobitele */
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+  }
+}
