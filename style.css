@@ -645,7 +645,7 @@ body {
 @media (max-width: 700px) {
   .carousel-item > img.hero-img {
     object-position: center 90% !important; /* dodatno podigni kadar */
-    transform: translateY(-99px) !important; /* lagano podigni sliku */
+    transform: translateY(-100px) !important; /* lagano podigni sliku */
   }
 }
 
