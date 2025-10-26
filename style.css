@@ -174,14 +174,9 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.25
-  ); /* 0.45 je optimalno, povećaj ili smanji po želji */
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1;
-  border-radius: inherit; /* ako koristiš rounded hero */
+  border-radius: inherit;
   pointer-events: none;
 }
 
@@ -222,7 +217,7 @@ h2 {
 .carousel,
 .carousel-inner,
 .carousel-item {
-  height: 95vh; /* puni ekran, bez obzira na rezoluciju */
+  height: 95vh;
   position: relative;
 }
 
@@ -261,10 +256,10 @@ h2 {
 }
 
 .card img {
-  transition: transform 8s ease-in-out; /* sporije i glađe */
+  transition: transform 8s ease-in-out;
 }
 .card:hover img {
-  transform: scale(1.05); /* malo jači zoom da se primijeti */
+  transform: scale(1.05);
 }
 
 .btn-primary {
